@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+{% if not results %}
+<h2>No results found!</h2>
+{% else %}
+{% for res, val in results.items %}
+<div class="card">
+    <h5 class="card-header">{{val.company}} {{ val.location }}</h5>
+    <div class="card-body">
+        <h5 class="card-title">{{ val.title }}</h5>
+        <p class="card-text">{{ val.summary }}</p>
+        <a href="{{ val.url }}" class="btn btn-primary">Apply</a>
+    </div>
+</div>
+<hr>
+{% endfor %}
+{% endif %}
+{% endblock content %}
